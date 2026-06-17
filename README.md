@@ -17,6 +17,24 @@ EKS (Тема 5-6)
 - **Цей репозиторій** (`lesson-7`): Terraform-код, що ставить ArgoCD.
 - **GitOps-репозиторій** з `application.yaml`: https://github.com/DenysRudenko2/goit-argo
 
+## Результат
+
+### ArgoCD розгорнуто через Terraform
+
+![ArgoCD via Terraform](screenshots/01-argocd-terraform.png)
+
+### Application синхронізовано → MLflow задеплоєно
+
+![ArgoCD application + MLflow](screenshots/02-argocd-app-mlflow.png)
+
+### ArgoCD UI — застосунок mlflow (Healthy / Synced)
+
+![ArgoCD UI app](screenshots/03-argocd-ui-app.png)
+
+### ArgoCD UI — дерево ресурсів (auto-sync)
+
+![ArgoCD UI tree](screenshots/04-argocd-ui-tree.png)
+
 ## Структура
 
 ```
