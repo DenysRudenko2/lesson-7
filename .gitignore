@@ -1,0 +1,11 @@
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+override.tf
+override.tf.json
+.terraformrc
+terraform.rc
+# .terraform.lock.hcl навмисно НЕ ігноруємо — фіксує версії провайдерів

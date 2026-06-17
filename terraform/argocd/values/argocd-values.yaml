@@ -1,0 +1,44 @@
+## ── ArgoCD Helm values (dev) ──
+## Критерії ДЗ: service ClusterIP, extraArgs, rbac, timeouts.
+
+configs:
+  # Параметри сервера: запускаємо без внутрішнього TLS (доступ через port-forward).
+  params:
+    server.insecure: true
+
+  # RBAC — політики доступу
+  rbac:
+    policy.default: role:readonly
+    policy.csv: |
+      g, argocd-admins, role:admin
+
+  # Timeouts реконсиляції (як часто Argo звіряє стан з Git)
+  cm:
+    timeout.reconciliation: 180s
+    timeout.hard.reconciliation: 0s
+
+server:
+  # Сервіс ClusterIP — назовні не світимо, доступ через port-forward
+  service:
+    type: ClusterIP
+  extraArgs:
+    - --insecure
+
+# Невеликі реквести під dev-кластер (t3.medium)
+controller:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+
+repoServer:
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+
+applicationSet:
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
